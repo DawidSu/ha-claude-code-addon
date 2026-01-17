@@ -35,7 +35,11 @@ options:
   mcp_server_port: 3000
   log_level: "info"
 schema:
-  anthropic_api_key: password
+  anthropic_api_key: 
+    type: password
+    name: "Anthropic API Key"
+    description: "API Key von console.anthropic.com"
+    url: "https://console.anthropic.com"
   model: list(claude-3-5-sonnet-20241022|claude-3-5-haiku-20241022|claude-3-opus-20240229)?
   max_tokens: int(1000,8000)?
   auto_connect_mcp: bool?
