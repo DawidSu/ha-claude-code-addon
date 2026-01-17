@@ -1,5 +1,5 @@
 name: Claude Code
-version: "1.0.0"
+version: "1.0.1"
 slug: claude-code
 description: Claude Code direkt in Home Assistant - Chat mit Claude über Web-Interface. API Key benötigt von console.anthropic.com
 url: https://github.com/DawidSu/ha-claude-code-addon
