@@ -1,0 +1,34 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 2 * * *'
+
+jobs:
+  build:
+    name: Build ${{ matrix.addon }} (${{ matrix.arch }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        addon: ["claude-code"]
+        arch: ["armhf", "armv7", "aarch64", "amd64", "i386"]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Get information
+        id: info
+        uses: home-assistant/actions/helpers/info@master
+        with:
+          path: "./${{ matrix.addon }}"
+
+      - name: Build
+        uses: home-assistant/builder@master
+        with:
+          args: |
+            --${{ matrix.arch }} \
+            --target /data/${{ matrix.addon }} \
+            --generic ${{ steps.info.outputs.version }}

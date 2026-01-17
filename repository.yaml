@@ -1,0 +1,4 @@
+# Home Assistant Add-on Repository: Claude Code
+name: "Claude Code for Home Assistant"
+url: "https://github.com/DawidSu/ha-claude-code-addon"
+maintainer: "DawidSu"
